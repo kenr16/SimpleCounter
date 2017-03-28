@@ -22,6 +22,24 @@ $(document).ready(function() {
           alert(counter);
         }
       }
+    event.preventDefault();
+    });
+
+
+    $("#formTwo").submit(function(event) {
+      alert("Submission Success!");
+      var friends = ["Ken", "James", "Ben", "Dan",];
+
+      for (var friend=0; friend <=3; friend++) {
+        alert("Hello, "+friends[friend]+"!");
+      }//
+
+      var numbers = [1, 2, 3, 4];
+        for(var a=0; a<numbers.length; a++ ) {
+          alert(numbers[a]*2);
+
+        }
+
 
 
     event.preventDefault();
