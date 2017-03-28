@@ -69,4 +69,26 @@ $(document).ready(function() {
       alert(vowelReplace(sentenceInput));
       event.preventDefault();
     });
+
+
+
+    $("#formFour").submit(function(event) {
+      var palInput = $("input#pal").val();
+      // alert(palInput);
+      var splitString = palInput.split("");
+      // alert(splitString);
+      var reverseArray = splitString.reverse();
+      // alert(reverseArray);
+      var joinArray = reverseArray.join("");
+      // alert(joinArray);
+      event.preventDefault();
+
+      if (joinArray === palInput){
+      alert("your word is a palindrome");
+    } else {
+      alert("your word is not a palindrome");
+    }
+
+
+    });
 });
