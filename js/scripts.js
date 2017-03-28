@@ -121,6 +121,15 @@ $(document).ready(function() {
           }
         }
       }
+      displayArray = [];
+      listOfNums.forEach(function(nummy) {
+        if (nummy == "x") {
+        } else if (nummy == 0 || nummy == 1) {
+        } else {
+          displayArray.push(nummy);
+        }
+      });
+      alert(displayArray);
 
 
       // for (var l=2; l<=priInput; l++) {
@@ -134,18 +143,6 @@ $(document).ready(function() {
       // }
       //alert(reavedNums);
       //alert(listOfNums);
-      displayArray = [];
-      listOfNums.forEach(function(nummy) {
-        if (nummy == "x") {
-
-        }
-        else {
-          displayArray.push(nummy);
-        }
-      });
-      alert(displayArray);
-
-
       event.preventDefault();
     });
 
