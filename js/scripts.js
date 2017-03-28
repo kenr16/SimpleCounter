@@ -60,6 +60,7 @@ $(document).ready(function() {
         return outputString
     };
 
+
     // *******************************
     // Front End Logic
     // *******************************
@@ -70,25 +71,82 @@ $(document).ready(function() {
       event.preventDefault();
     });
 
+    // *******************************
+    // Back End Logic - palindrome
+    // *******************************
 
+    function reverseString(palinInput) {
+      var splitString = palinInput.split("");
+      var reverseArray = splitString.reverse();
+      var joinArray = reverseArray.join("");
+      return joinArray;
+    };
+
+
+    // *******************************
+    // Front End Logic
+    // *******************************
 
     $("#formFour").submit(function(event) {
       var palInput = $("input#pal").val();
-      // alert(palInput);
-      var splitString = palInput.split("");
-      // alert(splitString);
-      var reverseArray = splitString.reverse();
-      // alert(reverseArray);
-      var joinArray = reverseArray.join("");
-      // alert(joinArray);
-      event.preventDefault();
-
-      if (joinArray === palInput){
+      var palOutput = reverseString(palInput);
+      if (palOutput.toUpperCase() === palInput.toUpperCase()){
       alert("your word is a palindrome");
     } else {
       alert("your word is not a palindrome");
     }
-
-
+      event.preventDefault();
     });
+
+
+
+    $("#formFive").submit(function(event) {
+
+      var priInput = parseInt($("input#primeInput").val());
+      var listOfNums = [];
+      for (i=0; i <= priInput; i++) {
+        listOfNums.push(i);
+      }
+
+      var reavedNums = [];
+      //var joinedArray = listOfNums.join("");
+      for (var j=2; j<=priInput; j++) {
+        for (var k=2; k<j; k++) {
+          if (j%k === 0) {
+            //alert(listOfNums[j]);
+            listOfNums.splice(j, 1, "x");
+            // if (reavedNums != j) {
+            //   listOfNums.splice(j, 1);
+            reavedNums.push(j);
+          }
+        }
+      }
+
+
+      // for (var l=2; l<=priInput; l++) {
+      //   reavedNums.forEach(function(rev) {
+      //     if (l == rev) {
+      //       alert(l);
+      //       alert(listOfNums[j]);
+      //       listOfNums.splice(j, 1);
+      //     }
+      //   });
+      // }
+      //alert(reavedNums);
+      //alert(listOfNums);
+      displayArray = [];
+      listOfNums.forEach(function(nummy) {
+        if (nummy == "x") {
+
+        }
+        else {
+          displayArray.push(nummy);
+        }
+      });
+      alert(displayArray);
+
+
+      event.preventDefault();
+    });
+
 });
